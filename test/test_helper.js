@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+// test connection to mongodb
 
 mongoose.connect('mongodb://localhost/users_test');
 mongoose.connection
