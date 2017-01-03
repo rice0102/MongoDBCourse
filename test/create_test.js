@@ -7,7 +7,7 @@ describe('Creating records', () => {
 
     // model follow ths schema
     const joe = new User({ name: 'Joe' }); // Creating new User
-    joe.save(); // Save instance to model database
+    joe.save(); // Save instance to model database , return object
   });
 });
 
