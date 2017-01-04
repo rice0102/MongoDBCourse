@@ -14,9 +14,12 @@ before((done) => {
 }); // before run just one time, wait successfully connection from mongo
 
 beforeEach((done) => {
-  //callback function done tell mocha can run next test
-  mongoose.connection.collections.users.drop(() => {
-    // Ready to run the next test
-    done();
+  const { users, comments, blogposts } = mongoose.connection.collections;
+  users.drop(() => {
+    comments.drop(() => {
+      blogposts.drop(() => {
+        done();
+      });
+    });
   });
 });
