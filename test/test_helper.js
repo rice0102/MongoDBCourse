@@ -17,7 +17,6 @@ beforeEach((done) => {
   //callback function done tell mocha can run next test
   mongoose.connection.collections.users.drop(() => {
     // Ready to run the next test
-    console.log('drop');
     done();
   });
 });

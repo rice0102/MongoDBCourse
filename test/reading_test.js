@@ -5,7 +5,6 @@ describe('Reading users out of the database', () => {
   let joe;
 
   beforeEach((done) => {
-    console.log('Reading');
     // joe is model instance
     joe = new User({ name: 'RJoe' });
     joe.save()

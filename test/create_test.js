@@ -3,7 +3,6 @@ const User = require('../src/user');
 
 describe('Creating records', () => {
   it('saves a user', (done) => {
-    console.log('Creating');
     // model follow ths schema
     const joe = new User({ name: 'CJoe' }); // Creating new User
 
