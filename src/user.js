@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const PostSchema = require('./post');
-// create Schema
+
 const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   name: {
@@ -22,6 +22,16 @@ const UserSchema = new Schema({
 UserSchema.virtual('postCount').get(function() {
   return this.posts.length;
 });
+
+UserSchema.pre('remove', function(next) {
+  // next tell mongoose all done can go next middleware
+  const BlogPost = mongoose.model('blogPost');
+ //here this === joe
+ // if the id in this record and remove it.
+ BlogPost.remove({ _id: { $in: this.blogPosts } })
+ .then(() => next());
+});
+
 // create model
 const User = mongoose.model('user', UserSchema);
 
